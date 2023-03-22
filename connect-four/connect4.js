@@ -23,6 +23,7 @@ function makeBoard(HEIGHT, WIDTH) {
 			board[y].push(null)
 		}
 	}
+
 }
 
 /** makeHtmlBoard: make HTML table and row of column tops. */
@@ -95,8 +96,7 @@ function endGame(msg) {
 
 function handleClick(evt) {
 	// get x from ID of clicked cell
-	let x = +evt.target.id;
-
+	let x = evt.target.id;
 	// get next spot in column (if none, ignore click)
 	let y = findSpotForCol(x);
 	if (y === null) {
@@ -106,6 +106,7 @@ function handleClick(evt) {
 	// place piece in board and add to HTML table
 	// TODO: add line to update in-memory board
 	board[y][x] = currPlayer;
+
 	placeInTable(y, x);
 
 
@@ -158,5 +159,5 @@ function checkForWin() {
 	}
 }
 
-makeBoard();
+makeBoard(HEIGHT, WIDTH);
 makeHtmlBoard();
